@@ -33,3 +33,12 @@ while abs(f(x0))>tol:
 print('跑了幾圈',i)
 print('x0 = ',x0)
 print('f(x0) = ',f(x0))
+
+
+
+
+
+
+
+
+
