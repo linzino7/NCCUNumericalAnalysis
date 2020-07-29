@@ -4,6 +4,10 @@
 Created on Wed Jul 29 17:04:07 2020
 
 @author: zino
+
+要特別注意
+官方已經宣告 mat 在未來會備移除。
+建議使用ndarray
 """
 
 # Python solve Ax=b
@@ -61,3 +65,5 @@ u
 # 向量內積
 z = float(u.T*v)
 z
+
+
