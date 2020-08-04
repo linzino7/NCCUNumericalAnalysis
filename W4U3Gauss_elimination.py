@@ -115,8 +115,46 @@ for c in range(ncol-1,-1,-1):
             print(M)
 
 
+#==============teacher
 
+def Guass_elimination(A,b):
+    m,n = A.shape
+    R = np.mat(np.zeros([m,n+1]))
+    R[:,:n] = A
+    R[:,n] = b
+    for i in range(m):
+        maxEc = abs(R[i,i])
+        maxRow = i
+        for k in range(i+1,m):
+            if abs(R[k,i])>maxEc:
+                maxEc = R[k,i]
+                maxRow = k
+        R[[i,maxRow],i:] = R[[maxRow,i],i:]
+        for k in range(i+1,m):
+            c = -float(R[k,i])/R[i,i]
+            R[k,i:] = R[k,i:]+c*R[i,i:]
+            
+    
+    x = np.mat(np.zeros([m,1]))
+    
+    for i in range(m-1,-1,-1):
+        x[i] = float(R[i,-1])/R[i,i]
+        print(x)
+        for k in range(i-1,-1,-1):
+            R[k,-1] -= R[k,i]*x[i] 
+            print(R)
+    return x
 
+# 方程式
+A = np.mat(np.round(rn.rand(4,4)*10))
+A
 
+# 解答
+xt = np.mat(np.round(rn.rand(4,1)*10))
+xt
 
+b = A*xt
+b
 
+x = Guass_elimination(A,b)
+x
